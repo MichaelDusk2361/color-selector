@@ -1,0 +1,53 @@
+<div id="color-box" #colorBox></div>
+<span id="color-hex" #colorHex>
+  {{ this.color | rgbToString }}
+  <br />
+  {{ this.color | rgbToString: false }}
+</span>
+<div id="gradient-container" #gradientContainer (mousedown)="this.onColorBoxMouseDown($event)">
+  <img
+    src="../../assets/gradient0.png"
+    [style.opacity]="gradient0Style.opacity"
+    [style.mixBlendMode]="gradient0Style.mixBlendMode"
+    [style.zIndex]="gradient0Style.zIndex"
+    class="gradient"
+    alt=""
+    draggable="false"
+  />
+  <img
+    src="../../assets/gradient120.png"
+    [style.opacity]="gradient120Style.opacity"
+    [style.mixBlendMode]="gradient120Style.mixBlendMode"
+    [style.zIndex]="gradient120Style.zIndex"
+    class="gradient"
+    alt=""
+    draggable="false"
+  />
+  <img
+    src="../../assets/gradient240.png"
+    [style.opacity]="gradient240Style.opacity"
+    [style.mixBlendMode]="gradient240Style.mixBlendMode"
+    [style.zIndex]="gradient240Style.zIndex"
+    class="gradient"
+    alt=""
+    draggable="false"
+  />
+  <!-- <canvas id="canvas" (mousedown)="this.onColorBoxMouseDown($event)" #canvas width="25" height="25"></canvas> -->
+  <div
+    #handle
+    id="color-handle"
+    [style.left.px]="this.handlePos.left"
+    [style.top.px]="this.handlePos.top"
+  ></div>
+</div>
+<input
+  type="range"
+  #hueSlider
+  (input)="this.onHueSliderInput()"
+  class="hueSlider"
+  min="0"
+  max="360"
+  value="50"
+/>
+<br />
+<input type="range" class="hueSlider" min="0" max="360" value="50" />
